@@ -13,9 +13,8 @@ client.on('ready', () => {
     client.user.setStatus('available')
     client.user.setPresence({
         game: {
-            name: 'with depression',
-            type: "STREAMING",
-            url: "https://twitch.tv/scribblehounts"
+            name: '!verify',
+            type: "PLAYING",
         }
     });
 });
@@ -58,22 +57,10 @@ client.on("message", async message => {
         command.run(client, message, args);
 });
 
-// WELCOME MESSAGe
 
- client.on("guildMemberAdd", (member) => {
 
-    let channel = client.channels.get('627712783957491712');
 
-    const embed = new Discord.RichEmbed()
-    .setColor("#2ecc71")
-    .setTitle(`**Welcome**`)
-    .setDescription(`**Welcome!** ${member} **to Vero! We hope you have a good time here!**`)
-    .setAuthor("VeroAPI","https://i.imgur.com/UaHfuUX.png")
-    .setTimestamp()
-    .setImage("https://i.imgur.com/UaHfuUX.png")
-    
-    channel.send(embed)
-});
+
 
 
 client.login(process.env.TOKEN);

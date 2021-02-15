@@ -19,7 +19,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
           var tokenID = message.author.id
           
           message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
-            message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
+            message.channel.awaitMessages(filter, { maxMatches: 1, time: 100000, errors: ['time']})
             .then(collected => {
   roblox.getBlurb(`${id}`).tap(function(user){
     console.log(user)
@@ -30,7 +30,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
          message.member.setNickname(`${username}`)
          message.member.addRole(message.guild.roles.find(role => role.name === "Verified"));
          } else {
-                         message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))
+                         message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757").setImage("https://cdn.discordapp.com/attachments/810960871844872267/810960905884926012/image0.png"))
          }
   })
 
