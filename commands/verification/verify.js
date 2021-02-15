@@ -18,7 +18,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
         roblox.getIdFromUsername(username).then(id => {
           var tokenID = message.author.id
           
-          message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
+          message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription("Wings").setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
             message.channel.awaitMessages(filter, { maxMatches: 1, time: 100000, errors: ['time']})
             .then(collected => {
   roblox.getBlurb(`${id}`).tap(function(user){
@@ -28,7 +28,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
      console.log("successful")
          message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
          message.member.setNickname(`${username}`)
-         message.member.addRole(message.guild.roles.find(role => role.name === "Verified"));
+         message.member.addRole(message.guild.roles.find(role => role.name === "verified"));
          } else {
                          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757").setImage("https://cdn.discordapp.com/attachments/810960871844872267/810960905884926012/image0.png"))
          }
