@@ -16,7 +16,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     	var username = args[1];
     	if (username){
         roblox.getIdFromUsername(username).then(id => {
-          var tokenID = message.author.id
+          var tokenID = "Wings"
           
           message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription("Wings").setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
             message.channel.awaitMessages(filter, { maxMatches: 1, time: 100000, errors: ['time']})
@@ -24,7 +24,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
   roblox.getBlurb(`${id}`).tap(function(user){
     console.log(user)
     console.log(message.author.id)
-       if (user.match(message.author.id)){
+       if (user.match("Wings")){
      console.log("successful")
          message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
          message.member.setNickname(`${username}`)
